@@ -1,0 +1,10 @@
+Put checkpoints in bart_ls-main/checkpoints
+Put datasets in bart_ls-main/datasets
+
+Cd fairseq-main 2
+python3 scripts/summarization/long_generate.py \
+            --model-dir ../checkpoints/model_gov.pt \
+            --data-dir ../datasets/prepared/govreport-bin \
+            --save-dir ../results \
+            --split valid \
+            --bsz 4
