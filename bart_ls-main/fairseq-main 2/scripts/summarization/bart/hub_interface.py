@@ -28,6 +28,7 @@ class BARTHubInterface(GeneratorHubInterface):
 
     def __init__(self, cfg, task, model):
         super().__init__(cfg, task, [model])
+        print("testing 1")
         self.model = self.models[0]
 
     def encode(
@@ -96,6 +97,7 @@ class BARTHubInterface(GeneratorHubInterface):
         **kwargs
     ) -> List[List[Dict[str, torch.Tensor]]]:
         inference_step_args = inference_step_args or {}
+        print("testing 2")
         if "prefix_tokens" in inference_step_args:
             raise NotImplementedError("prefix generation not implemented for BART")
         res = []

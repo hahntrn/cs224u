@@ -90,6 +90,7 @@ def main():
         hub_interface = hub_interface.eval()
         assert torch.cuda.is_available()
         hub_interface = hub_interface.cuda()
+        print("Testing 3")
         for idx in tqdm(range(0, len(all_sents), args.bsz)):
             batch_sents = all_sents[idx:idx+args.bsz]
             batch_hypos = hub_interface.generate(
