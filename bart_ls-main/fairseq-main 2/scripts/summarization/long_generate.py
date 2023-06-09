@@ -7,9 +7,12 @@ import torch
 import argparse
 from tqdm import tqdm
 from fairseq import checkpoint_utils
-from fairseq.tasks.summarization import SummarizationTask, load_langpair_dataset
+from summarization import load_langpair_dataset
+import checkpoint_utils
 from fairseq.models.bart.hub_interface import BARTHubInterface
 from fairseq.data.encoders.gpt2_bpe import GPT2BPE, GPT2BPEConfig
+from bart import BARTModel
+
 import nltk
 
 
@@ -85,8 +88,8 @@ def main():
     all_results = []
     with torch.no_grad():
         hub_interface = hub_interface.eval()
-        #assert torch.cuda.is_available()
-        hub_interface = hub_interface#.cuda()
+        assert torch.cuda.is_available()
+        hub_interface = hub_interface.cuda()
         for idx in tqdm(range(0, len(all_sents), args.bsz)):
             batch_sents = all_sents[idx:idx+args.bsz]
             batch_hypos = hub_interface.generate(
