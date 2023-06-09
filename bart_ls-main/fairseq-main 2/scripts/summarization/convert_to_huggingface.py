@@ -1,6 +1,5 @@
 import torch.nn as nn
 from transformers import PreTrainedModel, PretrainedConfig
-from .bart import BARTModel
 
 class MyConfig(PretrainedConfig):
     model_type = 'bartls_govreport'
