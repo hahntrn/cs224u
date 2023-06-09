@@ -27,8 +27,8 @@ class BARTHubInterface(GeneratorHubInterface):
     """
 
     def __init__(self, cfg, task, model):
-        super().__init__(cfg, task, [model])
         print("testing 1")
+        super().__init__(cfg, task, [model])
         self.model = self.models[0]
 
     def encode(
