@@ -17,7 +17,7 @@ import nltk
 
 
 def main():
-    print("hihihihi")
+    print("hihihihi cuda")
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--model-dir",
