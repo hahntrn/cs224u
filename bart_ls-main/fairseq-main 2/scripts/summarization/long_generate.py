@@ -3,6 +3,7 @@
 # This source code is licensed under the MIT license found in the
 # LICENSE file in the root directory of this source tree.
 
+from convert_to_huggingface import MyModel, MyConfig
 import torch
 import argparse
 from tqdm import tqdm
@@ -44,7 +45,9 @@ def main():
 
     models, cfg, task = checkpoint_utils.load_model_ensemble_and_task([args.model_dir])
     model = models[0]
-
+    hf_model = MyModel(MyConfig(), model)
+    hf_model.save_pretrained('./bartls_govreport_pretrained')
+    exit()
     print(f"Num of model parameters: {sum(p.numel() for p in model.parameters() if p.requires_grad)}")
 
 
