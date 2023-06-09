@@ -93,6 +93,7 @@ def main():
         print("Testing 3")
         for idx in tqdm(range(0, len(all_sents), args.bsz)):
             batch_sents = all_sents[idx:idx+args.bsz]
+            print(batch_sents)
             batch_hypos = hub_interface.generate(
                 batch_sents,
                 skip_invalid_size_inputs=False,
