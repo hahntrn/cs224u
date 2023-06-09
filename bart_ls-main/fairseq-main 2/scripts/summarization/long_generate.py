@@ -32,6 +32,7 @@ def main():
     )
     parser.add_argument("--save-dir", default=None, type=str)
     parser.add_argument("--bsz", default=4, help="batch size", type=int)
+    parser.add_argument("--max_tokens", default=None, help="max tokens", type=int)
 
     parser.add_argument(
         "--n", default=None, help="how many examples to summarize", type=int
