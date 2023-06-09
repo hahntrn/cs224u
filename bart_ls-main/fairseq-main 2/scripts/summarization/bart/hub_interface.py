@@ -97,7 +97,7 @@ class BARTHubInterface(GeneratorHubInterface):
         **kwargs
     ) -> List[List[Dict[str, torch.Tensor]]]:
         inference_step_args = inference_step_args or {}
-        print("testing 2")
+        print("testing 2", print(len(tokenized_sentences)), print(len(tokenized_sentences[0])))
         if "prefix_tokens" in inference_step_args:
             raise NotImplementedError("prefix generation not implemented for BART")
         res = []
